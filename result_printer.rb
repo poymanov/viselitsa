@@ -7,7 +7,7 @@ class ResultPrinter
     current_path = File.dirname(__FILE__)
     counter = 0
 
-    while counter <= 7
+    8.times do |counter|
 
       file_name = current_path + "/image/#{counter}.txt"
 

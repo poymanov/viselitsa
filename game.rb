@@ -17,20 +17,18 @@ class Game
       abort "Загадано пустое слово, нечего отгадывать. Закрываемся"
     end
 
-    return slovo.encode('UTF-8').split("")
+    slovo.encode('UTF-8').split("")
   end
 
   def status
-    return @status
+    @status
   end
 
   # Основной метод игры "сделать следующий шаг". В качестве параметра принимает
   # букву, которую ввел пользователь. Основная логика взята из метода
   # check_user_input (см. первую версию программы).
   def next_step(bukva)
-    if @status == -1 || @status == 1
-      return
-    end
+    return if @status == -1 || @status == 1
 
     if @good_letters.include?(bukva) || @bad_letters.include?(bukva)
       return
@@ -38,17 +36,11 @@ class Game
 
     if @letters.include?(bukva)
       @good_letters << bukva
-
-      if @good_letters.uniq.sort == @letters.uniq.sort
-        @status = 1
-      end
+      @status = 1 if @good_letters.uniq.sort == @letters.uniq.sort
     else
       @bad_letters << bukva
       @errors += 1
-
-      if @errors >= 7
-        @status = -1
-      end
+      @status = -1 if @errors >= 7
     end
   end
 
@@ -59,7 +51,7 @@ class Game
     puts "\nВведите следующую букву"
 
     letter = ""
-    while letter == ""
+    until letter
       letter = STDIN.gets.encode("UTF-8").chomp
       letter = UnicodeUtils.downcase(letter)
     end
