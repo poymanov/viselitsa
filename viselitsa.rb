@@ -12,7 +12,9 @@ if Gem.win_platform?
   end
 end
 
-require 'unicode_utils'
+require 'rubygems'
+require 'bundler/setup'
+Bundler.require(:default)
 
 require_relative "game"
 require_relative "result_printer"

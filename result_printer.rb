@@ -57,7 +57,7 @@ class ResultPrinter
   def get_word_for_print(letters, good_letters)
     result = ""
 
-    for item in letters do
+    letters.each do |item|
       if good_letters.include?(item)
         result += item + " "
       else
