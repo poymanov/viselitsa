@@ -19,12 +19,6 @@ class ResultPrinter
     end
   end
 
-  # Метод print_viselitsa будет рисовать виселицу, соответствующую текущему
-  # количеству ошибок. Единственнй параметро этого метода — целое число errors.
-  def print_viselitsa(errors)
-    puts @status_image[errors]
-  end
-
   # Основной метод, печатающий состояния объекта класса Game, который нужно
   # передать ему в качестве параметра.
   def print_status(game)
@@ -69,4 +63,11 @@ class ResultPrinter
   def cls
     system("clear") || system("cls")
   end
+
+  # Метод print_viselitsa будет рисовать виселицу, соответствующую текущему
+  # количеству ошибок. Единственнй параметро этого метода — целое число errors.
+  def print_viselitsa(errors)
+    puts @status_image[errors]
+  end
+
 end
