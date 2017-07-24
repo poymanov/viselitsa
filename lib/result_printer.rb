@@ -5,10 +5,8 @@ class ResultPrinter
     @status_image = []
 
     current_path = File.dirname(__FILE__)
-    counter = 0
 
     8.times do |counter|
-
       file_name = current_path + "/image/#{counter}.txt"
 
       if File.exist?(file_name)
@@ -18,8 +16,6 @@ class ResultPrinter
       else
         @status_image << "\n [ изображение не найдено ] \n"
       end
-
-      counter += 1
     end
   end
 
@@ -53,6 +49,8 @@ class ResultPrinter
       puts "У вас осталось ошибок: " + (7 - game.errors).to_s
     end
   end
+
+  private
 
   def get_word_for_print(letters, good_letters)
     result = ""

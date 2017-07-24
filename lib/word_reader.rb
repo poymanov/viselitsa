@@ -1,11 +1,7 @@
 # encoding: utf-8
 
-class WordReader
-  def read_from_args
-    ARGV[0]
-  end
-
-  def read_from_file(file_name)
+module WordReader
+  def self.read_from_file(file_name)
     # Если файла не существует, сразу выходим из метода
     return nil unless File.exist?(file_name)
 

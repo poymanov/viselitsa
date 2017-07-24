@@ -69,9 +69,8 @@ class Game
     letter = ""
     until letter
       letter = STDIN.gets.encode("UTF-8").chomp
-      letter = UnicodeUtils.downcase(letter)
     end
 
-    next_step(letter)
+    next_step(UnicodeUtils.downcase(letter))
   end
 end
